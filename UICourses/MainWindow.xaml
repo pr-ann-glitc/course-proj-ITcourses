@@ -1,0 +1,91 @@
+﻿<Window x:Class="UICourses.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UICourses"
+        mc:Ignorable="d"
+        Title="For admin" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Создание курса" Height="40">
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label Content="Название" Grid.Row="0" HorizontalAlignment="Right"/>
+                        <TextBox x:Name="NameOfCourseTextBox" Margin="5" Grid.Row="0" Grid.Column="1" Text="nn"/>
+                        <Label Content="Выбор преподавателя" Grid.Row="1" HorizontalAlignment="Right"/>
+                        <ComboBox x:Name="TeacherComboBox" Grid.Row="1" Grid.Column="1" Margin="5">
+                            <ComboBoxItem Content="Виктория"/>
+                            <ComboBoxItem Content="Сергей"/>
+                            <ComboBoxItem Content="Илья"/>
+                            <ComboBoxItem Content="Анастасия"/>
+                            <ComboBoxItem Content="Борис"/>
+                            <ComboBoxItem Content="Ангелина"/>
+                            <ComboBoxItem Content="Евгений"/>
+                        </ComboBox>
+                        <Label Content="Время проведения" Grid.Row="2" HorizontalAlignment="Right"/>
+                        <DatePicker x:Name="DateTimeOfCourse" Grid.Row="2" Grid.Column="1" Margin="5" />
+                        <Label Content="Максимальное число учеников" Grid.Row="3" HorizontalAlignment="Right" />
+                        <Button x:Name="CreateCourses" Content="Создать курс" Grid.Column="1" Grid.Row="4"
+                            Height="50" Width="150" Click="CreateCourse"/>
+                        <TextBox x:Name="MaxTextBox" Grid.Row="3" Grid.Column="1" Text="wef" Margin="5"/>
+                        <TextBox x:Name="InfoOfCourse" Grid.Row="4" Grid.Column="0" 
+                             Text="после нажатия кнопки создать курс здесь появится инфо о созданном курсе"
+                             Background="Lavender" Margin="10" IsReadOnly="True"/>
+                        <Button Grid.Column="1" Grid.Row="5" 
+                                Height="30" Width="120"
+                                Content="перейти на форму student"
+                                Click="GoToStudentWindow"/>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Header="Добавление учителя">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Имя" Grid.Row="0" HorizontalAlignment="Right"/>
+                    <TextBox x:Name="TeacherNameTextBox"  Margin="5" Grid.Row="0" Grid.Column="1" Text="nn"/>
+                    <Label Content="Выбор курса" Grid.Row="1" HorizontalAlignment="Right"/>
+                    <ComboBox x:Name="TeacherCourseComboBox"  Grid.Row="1" Grid.Column="1" Margin="5">
+                        <ComboBoxItem Content="web"/>
+                        <ComboBoxItem Content="c#"/>
+                        <ComboBoxItem Content="c++"/>
+                        <ComboBoxItem Content="python"/>
+                    </ComboBox>
+                    <Label Content="Нагрузка" Grid.Row="3" HorizontalAlignment="Right" />
+                    <Button x:Name="AddTeacherButton"  Content="Добавить преподавателя" Grid.Column="1" Grid.Row="5"
+    Height="50" Width="150" Click="AddTeacher"/>
+                    <TextBox  Grid.Row="3" Grid.Column="1" Text="после выбора курса здесь появится нагрузка на неделю" Margin="5"
+                          IsReadOnly="True"/>
+                    <TextBox x:Name="InfoOfTeacher" Grid.Row="5" Grid.Column="0" IsReadOnly="True"
+     Background="Lavender" Margin="10"
+                             Text="здесь появится инфо о преподе"
+                         TextWrapping="Wrap" />
+                    
+                </Grid>
+            </TabItem>
+            <TabItem Header="Формирование расписания"></TabItem>
+        </TabControl>
+    </Grid>
+</Window>
