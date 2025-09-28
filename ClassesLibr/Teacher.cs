@@ -19,6 +19,9 @@ namespace ClassesLibr
             Course = course;
         }
 
-        public Teacher() { }
+        public Teacher() 
+        {
+            
+        }
     }
 }

@@ -11,18 +11,24 @@ namespace ClassesLibr
         public int ID;
         public string Name;
         public Teacher Teacher;
-        public DateTime DateTime;
+        public int Duration;
         public List<Student> Students = new List<Student>();
         public int MaxStudents;
 
-        public Course(string name, Teacher teacher, DateTime date, int max)
+        
+        public Course() { }
+
+        public Course( string name, Teacher teacher, int duration, int maxStudents)
         {
             Name = name;
             Teacher = teacher;
-            DateTime = date;
-            MaxStudents = max;
+            Duration = duration;
+            MaxStudents = maxStudents;
         }
 
-        public Course() { }
+        public override string ToString()
+        {
+            return $"Название: {Name}\nПреподаватель: {Teacher.FirstName}\nДлительность обучения: {Duration} месяцев\nМаксимальное число студентов: {MaxStudents}";
+        }
     }
 }

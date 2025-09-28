@@ -1,14 +1,6 @@
-﻿using System.Text;
+﻿using ClassesLibr;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using ClassesLibr;
 namespace UICourses
 {
     /// <summary>
@@ -20,34 +12,65 @@ namespace UICourses
         {
             InitializeComponent();
         }
+        public List<Course> courses = new List<Course>();
 
         private void CreateCourse(object sender, RoutedEventArgs e)
         {
-            string name = NameOfCourseTextBox.Text;
-            Teacher teacher = new Teacher();
-            teacher.FirstName = TeacherComboBox.SelectionBoxItem.ToString();
-            DateTime dt = (DateTime)DateTimeOfCourse.SelectedDate;
-            int max = int.Parse(MaxTextBox.Text);
-            Course c = new Course(name, teacher, dt, max);
+            try
+            {
+                string name = NameTextBox.Text?.Trim() ?? "";
 
-            InfoOfCourse.Text = $"{c.Name}\n{c.Teacher.FirstName}\n{c.DateTime.Date}\n{c.MaxStudents}";
+                if (string.IsNullOrWhiteSpace(name))
+                {
+                    MessageBox.Show($"Вы не ввели название курса!", "ОШИБКА", MessageBoxButton.OK, MessageBoxImage.Error);
+                    NameTextBox.Focus();
+                    return;
+                }
+
+                if (TeacherComboBox.SelectedItem == null)
+                {
+                    MessageBox.Show("Вы не выбрали учителя!", "ОШИБКА", MessageBoxButton.OK, MessageBoxImage.Error);
+                    TeacherComboBox.Focus();
+                    return;
+                }
+
+                Teacher teacher = new Teacher();
+                teacher.FirstName = TeacherComboBox.SelectionBoxItem.ToString();
+
+                if (!int.TryParse(DurationTextBox.Text, out int dur) || dur <= 0)
+                {
+                    MessageBox.Show("Неверный ввод длительности курса!\nВведите положительное число", "ОШИБКА", MessageBoxButton.OK, MessageBoxImage.Error);
+                    DurationTextBox.Clear();
+                    DurationTextBox.Focus();
+                    return;
+                }
+
+                if (!int.TryParse(MaxTextBox.Text, out int max) || max <= 0)
+                {
+                    MessageBox.Show("Неверный ввод количества учеников на курс!\nВведите положительное число", "ОШИБКА", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MaxTextBox.Clear();
+                    MaxTextBox.Focus();
+                    return;
+                }
+                
+                Course c = new Course(name, teacher, dur, max);
+                courses.Add(c);
+                MessageBox.Show($"Курс {c.Name} успешно создан!\n{c.ToString()}", "INFO", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                info.Text += "\n" + c.ToString() + "\n";
+                ClearForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Произошла непредвиденная ошибка: {ex.Message}", "ОШИБКА", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
-        private void AddTeacher(object sender, RoutedEventArgs e)
+        private void ClearForm()
         {
-            string name = TeacherNameTextBox.Text;
-            Course c = new Course();
-            c.Name = TeacherCourseComboBox.SelectionBoxItem.ToString();
-
-            Teacher teacher = new Teacher(name, c);
-
-            InfoOfTeacher.Text = $"{teacher.FirstName}\n{teacher.Course.Name}";
-        }
-
-        private void GoToStudentWindow(object sender, RoutedEventArgs e)
-        {
-            StudentWindow st = new StudentWindow();
-            st.Show();
+            NameTextBox.Clear();
+            TeacherComboBox.SelectedIndex = -1;
+            MaxTextBox.Clear();
+            DurationTextBox.Clear();
         }
     }
 }
