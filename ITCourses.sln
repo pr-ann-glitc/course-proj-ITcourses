@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22 d17.14
+VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UICourses", "UICourses\UICourses.csproj", "{6EC63D74-CEFC-4E58-B74F-2F72913D32B2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassesLibr", "ClassesLibr\ClassesLibr.csproj", "{758B811A-46D8-4DAF-BB07-5AE966B08B2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Interfaces", "Data.Interfaces\Data.Interfaces.csproj", "{C2FE4604-4363-4096-BB5A-CFC8F17D33AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.InMemory", "Data.InMemory\Data.InMemory.csproj", "{A7056465-E3A4-4BC0-82B1-96C0BD1E70B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{758B811A-46D8-4DAF-BB07-5AE966B08B2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{758B811A-46D8-4DAF-BB07-5AE966B08B2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{758B811A-46D8-4DAF-BB07-5AE966B08B2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2FE4604-4363-4096-BB5A-CFC8F17D33AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2FE4604-4363-4096-BB5A-CFC8F17D33AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2FE4604-4363-4096-BB5A-CFC8F17D33AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2FE4604-4363-4096-BB5A-CFC8F17D33AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7056465-E3A4-4BC0-82B1-96C0BD1E70B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7056465-E3A4-4BC0-82B1-96C0BD1E70B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7056465-E3A4-4BC0-82B1-96C0BD1E70B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7056465-E3A4-4BC0-82B1-96C0BD1E70B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,34 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ClassesLibr
+﻿namespace ClassesLibr
 {
     public class Course
     {
-        public int ID;
-        public string Name;
-        public Teacher Teacher;
-        public int Duration;
-        public List<Student> Students = new List<Student>();
-        public int MaxStudents;
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public Teacher Teacher { get; set; }
+        public int Duration { get; set; }
+        public List<Student> Students { get; set; } = new List<Student>();
+        public int MaxStudents { get; set; }
+        public bool IsActivity { get; set; } = true;
+        public string Description { get; set; }
 
-        
-        public Course() { }
+        private static int _nId = 1;
 
-        public Course( string name, Teacher teacher, int duration, int maxStudents)
+        public Course() 
         {
+            ID = _nId++;
+            Students = new List<Student>();
+        }
+
+        public Course(string name, Teacher teacher, int duration, int maxStudents, string description)
+        {
+            ID = _nId++;
             Name = name;
             Teacher = teacher;
             Duration = duration;
             MaxStudents = maxStudents;
+            Students = new List<Student>();
+            IsActivity = true;
+            Description = description;
         }
 
         public override string ToString()
         {
-            return $"Название: {Name}\nПреподаватель: {Teacher.FirstName}\nДлительность обучения: {Duration} месяцев\nМаксимальное число студентов: {MaxStudents}";
+            return $"ID: {ID}\nНазвание: {Name}\nПреподаватель: {Teacher.FirstName}\nДлительность обучения (в месяцах): {Duration}\nМаксимальное число студентов: {MaxStudents}";
         }
     }
 }

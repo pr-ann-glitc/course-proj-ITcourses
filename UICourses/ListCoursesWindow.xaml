@@ -1,0 +1,34 @@
+﻿<Window x:Class="UICourses.ListCoursesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UICourses"
+        mc:Ignorable="d"
+        Title="Курсы CRUD" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid Name="ListOfCourses" AutoGenerateColumns="False" Margin="10"
+                  HorizontalAlignment="Stretch">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=ID}" Width="auto"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Path=Name}" Width="auto"/>
+                <DataGridTextColumn Header="Преподаватель" Binding="{Binding Path=Teacher.FirstName}" Width="auto"/>
+                <DataGridTextColumn Header="Длительность" Binding="{Binding Path=Duration}" Width="auto"/>
+                <DataGridTextColumn Header="Макс. студентов" Binding="{Binding Path=MaxStudents}" Width="auto"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Path=Description}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Button Content="Добавить курс" Click="AddCourse_Click" Margin="5" Padding="10,5"/>
+            <Button Content="Редактировать" Click="EditCourse_Click" Margin="5" Padding="10,5"/>
+            <Button Content="Удалить" Click="DeleteCourse_Click" Margin="5" Padding="10,5"/>
+            <Button Content="Назад в меню" Click="BackToMenu_Click" Margin="5" Padding="10,5"/>
+        </StackPanel>
+    </Grid>
+</Window>

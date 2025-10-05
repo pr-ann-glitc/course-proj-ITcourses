@@ -9,9 +9,9 @@ namespace ClassesLibr
     public class Teacher
     {
         public int ID;
-        public string FirstName; //имя
-        public Course Course;
-        public double Workload;
+        public string FirstName { get; set; } //имя
+        public Course Course { get; set; }
+        public double Workload { get; set; }
 
         public Teacher(string first, Course course)
         {
