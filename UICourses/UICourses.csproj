@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ClassesLibr\ClassesLibr.csproj" />
+    <ProjectReference Include="..\ClassesLibr\Domain.csproj" />
     <ProjectReference Include="..\Data.InMemory\Data.InMemory.csproj" />
     <ProjectReference Include="..\Data.Interfaces\Data.Interfaces.csproj" />
   </ItemGroup>

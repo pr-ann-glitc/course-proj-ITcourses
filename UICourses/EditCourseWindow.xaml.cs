@@ -12,6 +12,7 @@ namespace UICourses
 
         public EditCourseWindow(ICoursesRepository repository, Course courseToEdit)
         {
+            ArgumentNullException.ThrowIfNull(courseToEdit);
             InitializeComponent();
             _repository = repository;
             _courseToEdit = courseToEdit;
@@ -20,22 +21,19 @@ namespace UICourses
 
         private void LoadCourseData()
         {
-            if (_courseToEdit != null)
-            {
-                NameTextBox.Text = _courseToEdit.Name;
-                DurationTextBox.Text = _courseToEdit.Duration.ToString();
-                MaxTextBox.Text = _courseToEdit.MaxStudents.ToString();
-                DescriptionTextBox.Text = _courseToEdit.Description;
+            NameTextBox.Text = _courseToEdit.Name;
+            DurationTextBox.Text = _courseToEdit.Duration.ToString();
+            MaxTextBox.Text = _courseToEdit.MaxStudents.ToString();
+            DescriptionTextBox.Text = _courseToEdit.Description;
 
-                if (_courseToEdit.Teacher != null)
+            if (_courseToEdit.Teacher != null)
+            {
+                foreach (ComboBoxItem item in TeacherComboBox.Items)
                 {
-                    foreach (ComboBoxItem item in TeacherComboBox.Items)
+                    if (item.Content.ToString() == _courseToEdit.Teacher.FirstName)
                     {
-                        if (item.Content.ToString() == _courseToEdit.Teacher.FirstName)
-                        {
-                            TeacherComboBox.SelectedItem = item;
-                            break;
-                        }
+                        TeacherComboBox.SelectedItem = item;
+                        break;
                     }
                 }
             }

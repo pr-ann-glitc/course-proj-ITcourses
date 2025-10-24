@@ -6,6 +6,7 @@ namespace Data.InMemory
     public class InMemoryCourses : ICoursesRepository
     {
         private readonly List<Course> _courses;
+        private static int _nId = 1;
 
         public InMemoryCourses() 
         {
@@ -14,6 +15,7 @@ namespace Data.InMemory
 
         public void AddNewCourse(Course course)
         {
+            course.ID = _nId++;
             if (course != null)
                 _courses.Add(course);
         }
@@ -25,7 +27,7 @@ namespace Data.InMemory
 
         public List<Course> GetAll()
         {
-            return _courses;
+            return _courses.ToList();
         }
 
         public bool Update(Course course) 
@@ -39,6 +41,7 @@ namespace Data.InMemory
                 _courses[index].Duration = course.Duration;
                 _courses[index].MaxStudents = course.MaxStudents;
                 _courses[index].IsActivity = course.IsActivity;
+                _courses[index].Description = course.Description;
                 return true;
             }
             return false;

@@ -14,14 +14,20 @@ namespace UICourses
         {
             InitializeComponent();
             _repository = repository;
+            UpdateCourseRepository();
+        }
+
+        private void UpdateCourseRepository()
+        {
             ListOfCourses.ItemsSource = _repository.GetAll();
         }
+
 
         private void AddCourse_Click(object sender, RoutedEventArgs e)
         {
             AddCourseWindow addCourseWindow = new AddCourseWindow(_repository);
             if (addCourseWindow.ShowDialog() == true)
-                ListOfCourses.Items.Refresh();
+                UpdateCourseRepository();
         }
 
         private void EditCourse_Click(object sender, RoutedEventArgs e)
@@ -30,12 +36,8 @@ namespace UICourses
             {
                 EditCourseWindow editWindow = new EditCourseWindow(_repository, selectedCourse);
                 if (editWindow.ShowDialog() == true)
-                {
-                    ListOfCourses.Items.Refresh();
-                }
+                    UpdateCourseRepository();
             }
-
-            
             else
             {
                 MessageBox.Show("Выберите курс для редактирования!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -53,10 +55,14 @@ namespace UICourses
                 {
                     if (_repository.Delete(selectedCourse.ID))
                     {
-                        ListOfCourses.Items.Refresh();
+                        UpdateCourseRepository();
                         MessageBox.Show("Курс успешно удален!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Выберите курс для удаления!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 

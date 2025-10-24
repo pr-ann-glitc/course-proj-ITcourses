@@ -11,17 +11,14 @@
         public bool IsActivity { get; set; } = true;
         public string Description { get; set; }
 
-        private static int _nId = 1;
 
         public Course() 
         {
-            ID = _nId++;
             Students = new List<Student>();
         }
 
         public Course(string name, Teacher teacher, int duration, int maxStudents, string description)
         {
-            ID = _nId++;
             Name = name;
             Teacher = teacher;
             Duration = duration;

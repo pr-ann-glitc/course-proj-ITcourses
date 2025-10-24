@@ -5,7 +5,7 @@ VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UICourses", "UICourses\UICourses.csproj", "{6EC63D74-CEFC-4E58-B74F-2F72913D32B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassesLibr", "ClassesLibr\ClassesLibr.csproj", "{758B811A-46D8-4DAF-BB07-5AE966B08B2C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "ClassesLibr\Domain.csproj", "{758B811A-46D8-4DAF-BB07-5AE966B08B2C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Interfaces", "Data.Interfaces\Data.Interfaces.csproj", "{C2FE4604-4363-4096-BB5A-CFC8F17D33AD}"
 EndProject
