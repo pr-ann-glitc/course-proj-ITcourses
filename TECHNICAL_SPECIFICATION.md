@@ -244,9 +244,6 @@
 - TextBox `StudentNameTextBox`- имя студента
 - TextBox `StudentPatronymicTextBox` - отчество студента
 - TextBox `StudentEmailTextBox` - почта студента
-- TextBox `StudentCardNumber` - номер карты студента
-- TextBox `StudentExpirationDate` - срок действия карты студента
-- TextBox `StudentCVV` - CVV карты студента
 
 **Действия:**
 - кнопка `Сохранить`:
