@@ -81,10 +81,6 @@
 - EndTime (time) - время конца занятия
 - MaxStudents (int) - максимальное количество учеников
 - Description (string?) - описание курса (nullable)
-- Status (enum) - статус курса
-  - 'Created' - курс создан, но не начат
-  - 'InProgress' - курс активен
-  - 'Done' - курс завершен
 
 
 Связи:
